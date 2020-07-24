@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    background-color: #f3e9f2;
+    &>img {
+        margin-left: 5rem;
+    }
+    & .panier {
+        display: flex;
+        width: 100px;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 10rem;
+        & img {
+            width: 30px;
+            padding-left: 1rem;
+        }
+        & p {
+            font-family: fantasy;
+            padding-top: 1rem;
+        }
+    }
+}
+
+;

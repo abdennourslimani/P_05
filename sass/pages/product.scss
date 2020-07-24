@@ -1,0 +1,62 @@
+.proj-prev {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    &__image {
+        width: 40%;
+        height: 400px;
+        box-shadow: 1px 34px 52px -21px rgba(168, 168, 168, 0.57);
+    }
+    &__description {
+        width: 30%;
+        margin: 0 3rem;
+        font-family: fantasy;
+        & p {
+            text-align: center;
+        }
+    }
+    &__price {
+        width: 40%;
+        height: 800px;
+        font-family: fantasy;
+        background-color: white;
+        border: 1px dashed red;
+        box-shadow: 1px 34px 52px -21px rgb(234 217 217 / 57%);
+        & p {
+            text-align: center;
+            font-size: 3rem;
+            border-bottom: 2px dashed red;
+            padding-bottom: 3rem;
+        }
+        & span {
+            padding-left: 2rem;
+            font-size: 2rem;
+            color: red;
+            font-family: sans-serif;
+        }
+        & select {
+            width: 100%;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            font-family: fantasy;
+            color: #0f48cc;
+            padding-bottom: 1rem;
+            padding-left: 2rem;
+            font-size: 2rem;
+        }
+        & label {
+            padding-left: 2rem;
+        }
+        & .add-to-cart {
+            margin: 3rem 0rem 0rem 5rem;
+            padding: 1rem;
+            padding-right: 3rem;
+            padding-left: 3rem;
+            background-color: #ff0000f0;
+            border-radius: 50px 50px 50px 50px;
+            color: white;
+            font-size: 2rem;
+            border: red;
+        }
+    }
+}

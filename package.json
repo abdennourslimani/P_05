@@ -1,0 +1,19 @@
+{
+  "name": "p_05_frontend",
+  "version": "1.0.0",
+  "description": "teddys_product",
+  "main": "index.js",
+  "scripts": {
+        "sass": "sass --watch ./sass/main.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdennourslimani/P_05_Frontend.git"
+  },
+  "author": "abdennour slimani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdennourslimani/P_05_Frontend/issues"
+  },
+  "homepage": "https://github.com/abdennourslimani/P_05_Frontend#readme"
+}

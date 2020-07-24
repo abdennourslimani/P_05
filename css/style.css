@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Indie+Flower&family=Kalam&family=Devonshire&family=Itim&family=Kaushan+Script&family=Kurale&family=Nunito&family=Source+Serif+Pro&display=swap");
+body {
+  margin: 0;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  margin: 6rem 20rem;
+  padding: 0rem 10rem;
+}
+
+.container2 {
+  margin: 20rem 20rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  background-color: #f3e9f2;
+}
+.header > img {
+  margin-left: 5rem;
+}
+.header .panier {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10rem;
+}
+.header .panier img {
+  width: 30px;
+  padding-left: 1rem;
+}
+.header .panier p {
+  font-family: fantasy;
+  padding-top: 1rem;
+}
+
+.footer {
+  padding: 1rem 0rem;
+  background-color: #f3e9f2;
+}
+.footer h4 {
+  text-align: center;
+  font-family: fantasy;
+  font-weight: lighter;
+}
+
+.menu-flex {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+}
+
+.teddyarticle-prev {
+  margin-bottom: 5rem;
+  box-shadow: 1px 34px 52px -21px rgba(168, 168, 168, 0.57);
+}
+.teddyarticle-prev .title-flex {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #6d5252d9;
+  font-family: fantasy;
+  height: 6rem;
+}
+.teddyarticle-prev a {
+  text-decoration: none;
+}
+.teddyarticle-prev img {
+  transform: scale(1);
+  transition: transform 400ms;
+}
+.teddyarticle-prev img:hover {
+  transform: scale(1.02);
+  opacity: 0.3;
+}
+
+.proj-prev {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+.proj-prev__image {
+  width: 40%;
+  height: 400px;
+  box-shadow: 1px 34px 52px -21px rgba(168, 168, 168, 0.57);
+}
+.proj-prev__description {
+  width: 30%;
+  margin: 0 3rem;
+  font-family: fantasy;
+}
+.proj-prev__description p {
+  text-align: center;
+}
+.proj-prev__price {
+  width: 40%;
+  height: 800px;
+  font-family: fantasy;
+  background-color: white;
+  border: 1px dashed red;
+  box-shadow: 1px 34px 52px -21px rgba(234, 217, 217, 0.57);
+}
+.proj-prev__price p {
+  text-align: center;
+  font-size: 3rem;
+  border-bottom: 2px dashed red;
+  padding-bottom: 3rem;
+}
+.proj-prev__price span {
+  padding-left: 2rem;
+  font-size: 2rem;
+  color: red;
+  font-family: sans-serif;
+}
+.proj-prev__price select {
+  width: 100%;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  font-family: fantasy;
+  color: #0f48cc;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  font-size: 2rem;
+}
+.proj-prev__price label {
+  padding-left: 2rem;
+}
+.proj-prev__price .add-to-cart {
+  margin: 3rem 0rem 0rem 5rem;
+  padding: 1rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  background-color: #ff0000f0;
+  border-radius: 50px 50px 50px 50px;
+  color: white;
+  font-size: 2rem;
+  border: red;
+}
+
+/*# sourceMappingURL=style.css.map */

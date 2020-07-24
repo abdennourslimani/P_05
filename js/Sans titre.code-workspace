@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../JWDP5"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "P_05_Frontend"
+	}
+}
