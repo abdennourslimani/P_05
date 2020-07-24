@@ -20,7 +20,7 @@ fetch(urlApi + '/' + urlid)
 
 
             let color = document.getElementById('teddy-select').value;
-            if (color !== "") {
+            if (color !== = "") {
                 let item = {
                     'id': id,
                     'color': color,
