@@ -60,7 +60,7 @@ class Teddy {
                              <p class="teddyarticle-prev__subtitle"> ${this.price} €</p>
                              <label for="teddy-select">choisissez une couleur :</label>
                                  <select name="teddys" id="teddy-select">
-                             </select>
+                                </select>
                              <button type="button"  id ="add-to-cart" class="add-to-cart">Ajouter au panier</button>
 
                         </div>

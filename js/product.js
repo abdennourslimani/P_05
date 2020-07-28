@@ -2,39 +2,69 @@ const urlApi = 'http://localhost:3000/api/teddies';
 let url = window.location.search;
 const urlparams = new URLSearchParams(url);
 const urlid = urlparams.get('id');
-console.log(urlid);
 
 
 
-let panier = [];
+let cart = []; // panier tableau 
 
 fetch(urlApi + '/' + urlid)
     .then(Response => Response.json())
     .then(result => {
         const tedyCostomize = new Teddy(result);
         tedyCostomize.displayItem('content');
+
+
         document.getElementById('add-to-cart').addEventListener('click', () => {
-            //récupération ID , color 
 
+
+            //récupération panier du storage
+            let storageCart = localStorage.getItem('cart');
+            if (storageCart !== null) {
+                cart = JSON.parse(storageCart);
+
+            }
+
+
+
+            // recupération du id et color 
             let id = result._id;
-
-
             let color = document.getElementById('teddy-select').value;
-            if (color !== = "") {
+            let price = result.price;
+            let name = result.name;
+
+
+            let productFound = cart.find(element => element.id == id && element.color == color);
+
+
+
+
+            //préparation de objet avant insertion dans le tableau panier 
+            if (color !== "") {
+
                 let item = {
                     'id': id,
                     'color': color,
+                    'price': price,
+                    'name': name,
 
                 }
-                panier.push(item);
-                console.log(panier);
-                //ajouter au tableau panier 
+
+                if (productFound == undefined) {
+                    let productQuantity = 1;
+                    item.productQuantity = 1;
+
+                    // creation tableau objet produits
+                    cart.push(item);
+                    console.log(cart);
+
+                } else {
+                    productFound.productQuantity++;
 
 
+                }
+                localStorage.setItem('cart', JSON.stringify(cart)); // string to save local storage
+                //localStorage.clear();
 
-                //transformer chaine de caractére 
-
-                // local storage ajouter panier 
 
             } else {
                 alert('choisissez une couleur ');
@@ -42,18 +72,5 @@ fetch(urlApi + '/' + urlid)
 
 
 
-
-
-
-
-
-
-        })
-
-
-
-
-    }).catch(error => {
-        console.log(error);
-
+        });
     });
