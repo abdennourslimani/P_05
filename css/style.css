@@ -19,9 +19,8 @@ html {
   font-size: 62.5%;
 }
 
-.container {
-  margin: 6rem 20rem;
-  padding: 0rem 10rem;
+.container_3 {
+  margin: 6rem 6rem;
 }
 
 .container2 {
@@ -156,6 +155,36 @@ html {
   color: white;
   font-size: 2rem;
   border: red;
+}
+
+.heading h2 {
+  font-weight: 100;
+}
+.heading span {
+  font-weight: bold;
+}
+
+.cart-prev {
+  border: 1px solid black;
+  margin-bottom: 10rem;
+  width: 50%;
+  font-family: fantasy;
+  display: flex;
+}
+.cart-prev > p,
+.cart-prev > span,
+.cart-prev > h3 {
+  padding-right: 2rem;
+}
+.cart-prev .cart-prev-image {
+  width: 60%;
+}
+.cart-prev .cart-prev-image img {
+  width: 75%;
+  height: 100%;
+}
+.cart-prev .cart-prev-description {
+  padding-bottom: 4rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -31,7 +31,7 @@ fetch(urlApi + '/' + urlid)
             let color = document.getElementById('teddy-select').value;
             let price = result.price;
             let name = result.name;
-
+            let image = result.imageUrl;
 
             let productFound = cart.find(element => element.id == id && element.color == color);
 
@@ -44,9 +44,9 @@ fetch(urlApi + '/' + urlid)
                 let item = {
                     'id': id,
                     'color': color,
-                    'price': price,
+                    'productPrice': price,
                     'name': name,
-
+                    'image': image,
                 }
 
                 if (productFound == undefined) {
@@ -63,7 +63,7 @@ fetch(urlApi + '/' + urlid)
 
                 }
                 localStorage.setItem('cart', JSON.stringify(cart)); // string to save local storage
-                //localStorage.clear();
+                // localStorage.clear();
 
 
             } else {

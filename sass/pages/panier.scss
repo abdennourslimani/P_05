@@ -1,0 +1,31 @@
+.heading {
+    & h2 {
+        font-weight: 100;
+    }
+    & span {
+        font-weight: bold;
+    }
+}
+
+.cart-prev {
+    border: 1px solid black;
+    margin-bottom: 10rem;
+    width: 50%;
+    font-family: fantasy;
+    display: flex;
+    &>p,
+    >span,
+    >h3 {
+        padding-right: 2rem;
+    }
+    & .cart-prev-image {
+        width: 60%;
+        & img {
+            width: 75%;
+            height: 100%;
+        }
+    }
+    & .cart-prev-description {
+        padding-bottom: 4rem;
+    }
+}
