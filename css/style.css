@@ -212,5 +212,12 @@ form input {
   margin-left: 1rem;
   margin-bottom: 2rem;
 }
+form input#validation {
+  background-color: black;
+  width: 50%;
+  margin-left: 12rem;
+  color: white;
+  font-size: 2rem;
+}
 
 /*# sourceMappingURL=style.css.map */
