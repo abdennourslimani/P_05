@@ -157,6 +157,10 @@ html {
   border: red;
 }
 
+.cart-flex {
+  display: flex;
+}
+
 .heading h2 {
   font-weight: 100;
 }
@@ -164,27 +168,49 @@ html {
   font-weight: bold;
 }
 
-.cart-prev {
+.cart-content {
+  width: 50%;
+  margin-right: 4rem;
+}
+.cart-content .cart-prev {
   border: 1px solid black;
   margin-bottom: 10rem;
-  width: 50%;
   font-family: fantasy;
   display: flex;
 }
-.cart-prev > p,
-.cart-prev > span,
-.cart-prev > h3 {
+.cart-content .cart-prev > p,
+.cart-content .cart-prev > span,
+.cart-content .cart-prev > h3 {
   padding-right: 2rem;
 }
-.cart-prev .cart-prev-image {
+.cart-content .cart-prev .cart-prev-image {
   width: 60%;
 }
-.cart-prev .cart-prev-image img {
+.cart-content .cart-prev .cart-prev-image img {
   width: 75%;
   height: 100%;
 }
-.cart-prev .cart-prev-description {
+.cart-content .cart-prev .cart-prev-description {
   padding-bottom: 4rem;
+}
+
+form {
+  width: 50%;
+}
+form h3 {
+  margin-top: 0;
+}
+form label {
+  display: block;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+}
+form input {
+  border-radius: 30px;
+  width: 90%;
+  padding: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

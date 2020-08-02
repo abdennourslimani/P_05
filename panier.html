@@ -23,9 +23,36 @@
         <div id="heading" class="heading">
 
         </div>
-        <div id="cart-content">
 
 
+        <div class="cart-flex">
+            <div id="cart-content" class="cart-content">
+            </div>
+            <form method="post" action="traitement.php">
+
+                <h3> Formulaire de commande</h3>
+                <!-- Titre du fieldset -->
+                <p>
+                    <label for="nom">Votre nom </label>
+                    <input type="text" name="nom" id="nom" placeholder="slimani" /><br />
+
+                    <label for="prenom"> votre prénom </label>
+                    <input type="text" name="prenom" id="prenom" placeholder="Mohamed" /><br />
+
+                    <label for="adresse">Votre adresse</label>
+                    <input type="text" name="adresse" id="adresse" placeholder="adresse" /><br />
+
+                    <label for="email">Votre email</label>
+                    <input type="email" name="email" id="email" placeholder="Ex:prenom.nom@.....fr" /><br />
+
+                    <label for="telephone">Votre telephone</label>
+                    <input type="tel" name="telephone" id="telephone" placeholder="telephone" /><br />
+                </p>
+                <p>
+                    <input type="Submit" id="validation" value="Envoyer">
+                </p>
+
+            </form>
         </div>
 
     </main>
