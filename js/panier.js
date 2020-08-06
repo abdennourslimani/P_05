@@ -36,12 +36,59 @@ if (productsLists != null) {
                 <h3> ${nameOfProduct}</h2>
                 <p> couleur :${colorOfProduct}</p>
                 <p> ${PriceOfProduct} €</p>
-                <span> Qty: ${QuantityOfProduct}</span>
+                <input class="moins" type="button" value="-" />
+                <input class="result" type="text" value="${QuantityOfProduct}"  maxlength="2" />
+                <input class="plus" type="button" value="+" />
             </div>
         </div>
-
         `
+        let plusElements = document.querySelectorAll('.plus');
+        let moinsElements = document.querySelectorAll('.moins');
+
+        let resultElements = document.querySelectorAll('.result');
+
+
+        resultElements.forEach(resultElement => {
+            let result = parseInt(resultElement.value, 10);
+
+            plusElements.forEach(plusElement => {
+                plusElement.addEventListener('click', () => {
+                    if (result >= 0 && result < 99) {
+                        result++;
+                        resultElement.value = result;
+                        console.log(result);
+                        localStorage.setItem('cart', JSON.stringify(productsLists));
+                        // string to save local storage
+
+                    }
+                });
+            });
+
+
+
+
+            moinsElements.forEach(moinsElement => {
+                moinsElement.addEventListener('click', () => {
+                    if (result > 0 && result <= 99) {
+                        result--;
+                        QuantityOfProduct = result;
+                        localStorage.setItem('cart', JSON.stringify(productsLists)); // string to save local storage
+
+                    }
+                });
+            });
+        });
+
+
     }
+
+
+
+
+
+
+
+
 
     const projHeader = document.getElementById('heading');
     projHeader.innerHTML += `
