@@ -8,7 +8,6 @@ class Teddy {
         this.colors = data.colors;
     }
 
-
     displayInList = (location) => {
 
 
@@ -76,7 +75,6 @@ class Teddy {
 
         for (let i = 0; i < this.colors.length; i++) {
             options += '<option value="' + this.colors[i] + '">' + this.colors[i] + '</option>"';
-            console.log(options);
         }
 
         tedycolor.innerHTML += options;

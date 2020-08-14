@@ -6,6 +6,11 @@ const urlid = urlparams.get('id');
 
 
 let cart = []; // panier tableau 
+produitId = location.search.substring(4);
+if (produitId == "") {
+    document.getElementById('content').remove();
+
+}
 
 fetch(urlApi + '/' + urlid)
     .then(Response => Response.json())
@@ -55,15 +60,17 @@ fetch(urlApi + '/' + urlid)
 
                     // creation tableau objet produits
                     cart.push(item);
-                    console.log(cart);
+                    //console.log(cart);
 
                 } else {
+                    console.log(productFound)
                     productFound.productQuantity++;
 
 
                 }
                 localStorage.setItem('cart', JSON.stringify(cart)); // string to save local storage
                 // localStorage.clear();
+                window.location.href = 'panier.html'
 
 
             } else {

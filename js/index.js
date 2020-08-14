@@ -1,6 +1,9 @@
-const urlApi = 'http://localhost:3000/api/teddies';
-const url2 = 'http://localhost:3000/api/furniture';
-const url3 = 'http://localhost:3000/api/cameras';
+let productSell = 'teddies';
+
+const urlApi = 'http://localhost:3000/api/' + productSell + '/';
+
+//const url2 = 'http://localhost:3000/api/furniture';
+//onst url3 = 'http://localhost:3000/api/cameras';
 
 // Exécute un appel AJAX GET
 // Prend en paramètres l'URL cible et la fonction callback appelée en cas de succès

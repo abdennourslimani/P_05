@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="desciprtion" content="site dédié à la vente des teddies de trés hautes qualitées avec plusieurs variétéss personnalisable">
     <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Orinoco poduits</title>
 </head>
 <header class="header">
@@ -28,28 +29,29 @@
         <div class="cart-flex">
             <div id="cart-content" class="cart-content">
             </div>
-            <form method="post" action="traitement.html">
+
+            <form method="post" id='form' action="traitement.html">
 
                 <h3> Formulaire de commande</h3>
                 <!-- Titre du fieldset -->
                 <p>
-                    <label for="nom">Votre nom </label>
-                    <input type="text" name="nom" id="nom" placeholder="slimani" /><br />
+                    <label for="lastname">Votre nom </label>
+                    <input type="text" name="lastname" id="lastname" placeholder="slimani" required /><br />
 
-                    <label for="prenom"> votre prénom </label>
-                    <input type="text" name="prenom" id="prenom" placeholder="Mohamed" /><br />
+                    <label for="firstname"> votre prénom </label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Mohamed" required /><br />
 
-                    <label for="adresse">Votre adresse</label>
-                    <input type="text" name="adresse" id="adresse" placeholder="adresse" /><br />
+                    <label for="adress">Votre adresse</label>
+                    <input type="text" name="adress" id="adress" placeholder="adresse" required /><br />
 
                     <label for="email">Votre email</label>
-                    <input type="email" name="email" id="email" placeholder="Ex:prenom.nom@.....fr" /><br />
+                    <input type="email" name="email" id="email" placeholder="Ex:prenom.nom@.....fr" required /><br />
 
-                    <label for="telephone">Votre telephone</label>
-                    <input type="tel" name="telephone" id="telephone" placeholder="telephone" /><br />
+                    <label for="phone">Votre telephone</label>
+                    <input type="tel" name="phone" id="phone" placeholder="telephone" required /><br />
                 </p>
                 <p>
-                    <input type="Submit" id="validation" value="commander">
+                    <input type="Submit" id="submit" value="commander">
                 </p>
 
             </form>
