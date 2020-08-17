@@ -28,16 +28,20 @@
                     <h3> ${nameOfProduct}</h2>
                     <p> couleur :${colorOfProduct}</p>
                     <p> ${PriceOfProduct} €</p>
+                    <div class=flex>
                     <input class="moins" type="button" value="-" />
                     <input class="result" type="text" value="${QuantityOfProduct}" data-productID="${idOfProduct}" data-productColor="${colorOfProduct}" maxlength="2" />
                     <input class="plus" type="button" value="+" />
-                    <i class="fa fa-trash" aria-hidden="true" data-productID="${idOfProduct}" data-productColor="${colorOfProduct}" ></i>
-                    
+                    <i class="fa fa-trash"  data-productID="${idOfProduct}" data-productColor="${colorOfProduct}" ></i>
+                    <div>
+
                 </div>
             </div>
             `
 
      });
+ } else if ('cart' == null) {
+     removeForm = document.getElementById('form').remove()
  }
  displayItems()
 
@@ -174,7 +178,7 @@
 
  submit.addEventListener('click', (e) => {
      e.preventDefault()
-     products = []
+     let products = []
 
      lastNameInuptValue = document.getElementById('lastname').value
      firstNameInuptValue = document.getElementById('firstname').value
@@ -202,20 +206,14 @@
          alert('remplissez le champ telephone correctement')
 
      } else {
-         alert('donnée envoyée')
-
          contact = {
-             firstname: firstNameInuptValue,
-             lastname: lastNameInuptValue,
-             adress: adressInuptValue,
-             city: cityInuptValue,
-             email: emailInuptValue
+             "firstName": firstNameInuptValue,
+             "lastName": lastNameInuptValue,
+             "address": adressInuptValue,
+             "city": cityInuptValue,
+             "email": emailInuptValue
          }
-         let products = getItemsIDs('cart');
-         const myCart = { contact: contact, products: products };
-         console.log(myCart);
-
-
+         products = getItemsIDs('cart');
 
 
          fetch("http://localhost:3000/api/teddies/order", {
@@ -223,11 +221,36 @@
                  headers: {
                      'Content-Type': 'application/json'
                  },
-                 body: JSON.stringify(myCart)
+                 body: JSON.stringify({
+                     contact: contact,
+                     products: products
+                 })
+
              })
              .then(Response => Response.json())
              .then(result => {
-                 console.log(result)
+                 console.log()
+                 if (products.length > 0) {
+                     let orderLists = [];
+                     orderId = result.orderId;
+                     orderFirstName = result.contact.firstName;
+                     orderLastName = result.contact.lastName;
+
+                     let item = {
+                         'orderId': orderId,
+                         'firstName': orderFirstName,
+                         'lastName': orderLastName,
+                     }
+                     orderLists.push(item)
+                     console.log("orderlist", orderLists)
+                     sessionStorage.setItem('orderList', JSON.stringify(orderLists));
+                     window.location.href = 'confirmation.html'
+                     localStorage.clear()
+
+
+                 } else {
+                     alert("votre panier est vide merci de le remplir tout d'abord ")
+                 }
 
              })
 
@@ -253,3 +276,22 @@
 
 
  })
+
+ /* fetch('https://jsonplaceholder.typicode.com/posts', {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+              title: 'hello ',
+              bod: 'miao'
+
+          })
+
+
+      })
+      .then(Response => Response.json())
+      .then(result => {
+          console.log(result)
+
+      })*/

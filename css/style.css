@@ -27,27 +27,49 @@ html {
   margin: 20rem 20rem;
 }
 
+#confirmation-content {
+  margin: 5rem;
+  padding: 7rem;
+}
+#confirmation-content p#orderMessage {
+  text-align: center;
+  border: 9px solid black;
+  padding: 10rem 1rem;
+  line-height: 6rem;
+  background: #c0b1cc;
+  font-family: monospace;
+  font-size: 25px;
+  font-weight: 600;
+}
+#confirmation-content p#orderMessage .name-order {
+  color: blanchedalmond;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   padding: 1rem 1rem;
   background-color: #f3e9f2;
 }
-.header > img {
-  margin-left: 5rem;
+.header img {
+  padding-left: 3rem;
 }
 .header .panier {
-  display: flex;
   width: 100px;
   justify-content: space-between;
   align-items: center;
   margin-right: 10rem;
 }
-.header .panier img {
+.header .panier a {
+  display: flex;
+  text-decoration: none;
+}
+.header .panier a img {
   width: 30px;
   padding-left: 1rem;
+  padding-right: 1rem;
 }
-.header .panier p {
+.header .panier a p {
   font-family: fantasy;
   padding-top: 1rem;
 }
@@ -192,6 +214,16 @@ html {
 }
 .cart-content .cart-prev .cart-prev-description {
   padding-bottom: 4rem;
+}
+.cart-content .cart-prev .cart-prev-description .flex {
+  display: flex;
+}
+.cart-content .cart-prev .cart-prev-description .flex .result {
+  text-align: center;
+  width: 20%;
+}
+.cart-content .cart-prev .cart-prev-description .flex .fa-trash {
+  padding-left: 1rem;
 }
 
 form {

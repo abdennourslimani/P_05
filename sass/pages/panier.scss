@@ -34,6 +34,16 @@
         }
         & .cart-prev-description {
             padding-bottom: 4rem;
+            & .flex {
+                display: flex;
+                & .result {
+                    text-align: center;
+                    width: 20%;
+                }
+                & .fa-trash {
+                    padding-left: 1rem;
+                }
+            }
         }
     }
 }

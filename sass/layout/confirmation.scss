@@ -1,0 +1,17 @@
+#confirmation-content {
+    margin: 5rem;
+    padding: 7rem;
+    & p#orderMessage {
+        text-align: center;
+        border: 9px solid black;
+        padding: 10rem 1rem;
+        line-height: 6rem;
+        background: #c0b1cc;
+        font-family: monospace;
+        font-size: 25px;
+        font-weight: 600;
+        & .name-order {
+            color: blanchedalmond;
+        }
+    }
+}
