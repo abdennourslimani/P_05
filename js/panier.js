@@ -1,4 +1,4 @@
- productsLists = JSON.parse(localStorage.getItem('cart'))
+ productsLists = loadFromStorage('cart')
 
  if (productsLists != null) {
 
@@ -10,11 +10,6 @@
          colorOfProduct = productsList.color;
          imageOfProduct = productsList.image;
          idOfProduct = productsList.id;
-
-
-
-
-
 
          cartContent = document.getElementById('cart-content');
 
@@ -41,7 +36,7 @@
 
      });
  } else if ('cart' == null) {
-     removeForm = document.getElementById('form').remove()
+     alert('panier vide')
  }
  displayItems()
 
@@ -51,7 +46,6 @@
  // remove product 
 
  let trushIcons = document.querySelectorAll('.fa-trash');
-
  trushIcons.forEach(trushIcon => {
      trushIcon.addEventListener('click', () => {
          let idTrush = trushIcon.getAttribute('data-productID');
@@ -123,13 +117,16 @@
  function totalCount() {
      let storage = loadFromStorage('cart');
      let total = 0;
+     if (storage != null) {
+         storage.forEach(elt => {
+             let price = elt.productPrice;
+             let quantity = elt.productQuantity;
+             total += price * quantity
+         })
+     } else {
+         total = 0
+     }
 
-     storage.forEach(elt => {
-         let price = elt.productPrice;
-         let quantity = elt.productQuantity;
-         total += price * quantity
-
-     })
      return total
 
  }
@@ -137,12 +134,17 @@
  function totalItems() {
      let storage = loadFromStorage('cart');
      let total = 0;
-     storage.forEach(elt => {
-         let quantity = elt.productQuantity;
-         total += quantity
+     if (storage != null) {
+         storage.forEach(elt => {
+             let quantity = elt.productQuantity;
+             total += quantity
 
-     })
+         })
+     } else {
+         total = 0
+     }
      return total
+
 
  }
 
@@ -157,6 +159,18 @@
      return JSON.parse(localStorage.getItem(key));
  }
 
+ function getItemsIDs(key) {
+     let productsIDS = [];
+     let storage = loadFromStorage(key)
+     if (storage.length > 0) {
+         storage.forEach(element => {
+             productsIDS.push(element.id)
+
+         });
+     }
+     return productsIDS
+
+ }
 
 
 
@@ -175,7 +189,6 @@
 
 
  let submit = document.getElementById('submit')
-
  submit.addEventListener('click', (e) => {
      e.preventDefault()
      let products = []
@@ -251,47 +264,12 @@
                  } else {
                      alert("votre panier est vide merci de le remplir tout d'abord ")
                  }
-
              })
-
-
-
      }
 
 
-     function getItemsIDs(key) {
-         let productsIDS = [];
-         let storage = loadFromStorage(key)
-         if (storage.length > 0) {
-             storage.forEach(element => {
-                 productsIDS.push(element.id)
-
-             });
-         }
-         return productsIDS
-
-     }
 
 
 
 
  })
-
- /* fetch('https://jsonplaceholder.typicode.com/posts', {
-          method: 'POST',
-          headers: {
-              'content-type': 'application/json'
-          },
-          body: JSON.stringify({
-              title: 'hello ',
-              bod: 'miao'
-
-          })
-
-
-      })
-      .then(Response => Response.json())
-      .then(result => {
-          console.log(result)
-
-      })*/
