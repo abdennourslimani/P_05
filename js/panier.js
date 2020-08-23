@@ -197,12 +197,14 @@
      firstNameInuptValue = document.getElementById('firstname').value
      adressInuptValue = document.getElementById('adress').value
      cityInuptValue = document.getElementById('city').value
+     missingName = document.getElementById('missingName')
 
      emailInuptValue = document.getElementById('email').value
      phoneInuptValue = document.getElementById('phone').value
 
      if (regexNumber.test(lastNameInuptValue) || regexMail.test(lastNameInuptValue) || regexSpecialCharacter.test(lastNameInuptValue) || lastNameInuptValue === "") {
-         alert('remplissez le champ nom correctement')
+         missingName.textContent = 'choisissez un nom juste'
+
      } else if (regexNumber.test(firstNameInuptValue) || regexMail.test(firstNameInuptValue) || regexSpecialCharacter.test(firstNameInuptValue) || firstNameInuptValue === "") {
          alert('remplissez le champ prenom correctement')
 
@@ -242,17 +244,19 @@
              })
              .then(Response => Response.json())
              .then(result => {
-                 console.log()
+                 console.log(result)
                  if (products.length > 0) {
                      let orderLists = [];
                      orderId = result.orderId;
                      orderFirstName = result.contact.firstName;
                      orderLastName = result.contact.lastName;
+                     priceOrder = totalCount();
 
                      let item = {
                          'orderId': orderId,
                          'firstName': orderFirstName,
                          'lastName': orderLastName,
+                         'price': priceOrder
                      }
                      orderLists.push(item)
                      console.log("orderlist", orderLists)

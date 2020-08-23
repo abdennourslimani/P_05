@@ -55,15 +55,20 @@ form {
     }
     & label {
         display: block;
-        padding-bottom: 1rem;
         padding-left: 2rem;
+        margin-top: 2rem;
+    }
+    & #missingName {
+        font-size: 1rem;
+        display: inline-block;
+        margin-left: 2rem;
+        color: red;
     }
     & input {
         border-radius: 30px;
         width: 90%;
         padding: 1rem;
         margin-left: 1rem;
-        margin-bottom: 2rem;
         &#validation {
             background-color: black;
             width: 50%;
