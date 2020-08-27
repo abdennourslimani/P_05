@@ -3,14 +3,9 @@ let url = window.location.search;
 const urlparams = new URLSearchParams(url);
 const urlid = urlparams.get('id');
 
+let cart = []
 
 
-let cart = []; // panier tableau 
-produitId = location.search.substring(4);
-if (produitId == "") {
-    document.getElementById('content').remove();
-
-}
 
 fetch(urlApi + '/' + urlid)
     .then(Response => Response.json())
@@ -77,7 +72,9 @@ fetch(urlApi + '/' + urlid)
                 alert('choisissez une couleur ');
             }
 
+        })
+    }).catch(error => {
+        document.getElementById('content').innerHTML = '<span class="error_product>choississez un produit svp</span>'
 
 
-        });
-    });
+    })

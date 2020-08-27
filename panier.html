@@ -23,13 +23,13 @@
 
 <body>
     <main class="container">
-        <h1>Votre panier</h1>
+        <h1 id='h1'>Votre panier</h1>
         <div id="heading" class="heading">
 
         </div>
 
 
-        <div class="cart-flex">
+        <div id="cart-flex">
             <div id="cart-content" class="cart-content">
             </div>
 
@@ -40,22 +40,28 @@
                 <p>
                     <label for="lastname">Votre nom </label>
                     <input type="text" name="lastname" id="lastname" placeholder="slimani" required /><br />
-                    <span id="missingName"></span></br>
+                    <span id="missingLastName"></span></br>
 
                     <label for="firstname"> votre prénom </label>
                     <input type="text" name="firstname" id="firstname" placeholder="Mohamed" required /><br />
+                    <span id="missingFirstName"></span></br>
 
                     <label for="adress">Votre adresse</label>
                     <input type="text" name="adress" id="adress" placeholder="adresse" required /><br />
+                    <span id="missingAdress"></span></br>
 
                     <label for="city">Votre ville</label>
                     <input type="text" name="city" id="city" placeholder="ville" required /><br />
+                    <span id="missingCity"></span></br>
 
                     <label for="email">Votre email</label>
                     <input type="email" name="email" id="email" placeholder="Ex:prenom.nom@.....fr" required /><br />
+                    <span id="missingEmail"></span></br>
 
                     <label for="phone">Votre telephone</label>
                     <input type="tel" name="phone" id="phone" placeholder="telephone" required /><br />
+                    <span id="missingPhone"></span></br>
+
                 </p>
                 <p>
                     <input type="Submit" id="submit" value="commander">

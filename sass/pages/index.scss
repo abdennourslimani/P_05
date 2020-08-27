@@ -3,6 +3,14 @@
     display: flex;
     flex-wrap: wrap;
     width: 400px;
+    & .error_server {
+        height: 50rem;
+        margin-top: 20rem;
+        color: red;
+        font-family: fantasy;
+        font-size: revert;
+        word-spacing: 0rem;
+    }
 }
 
 .teddyarticle-prev {

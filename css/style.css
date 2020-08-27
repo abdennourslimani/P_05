@@ -90,6 +90,14 @@ html {
   flex-wrap: wrap;
   width: 400px;
 }
+.menu-flex .error_server {
+  height: 50rem;
+  margin-top: 20rem;
+  color: red;
+  font-family: fantasy;
+  font-size: revert;
+  word-spacing: 0rem;
+}
 
 .teddyarticle-prev {
   margin-bottom: 5rem;
@@ -125,6 +133,15 @@ html {
   width: 40%;
   height: 400px;
   box-shadow: 1px 34px 52px -21px rgba(168, 168, 168, 0.57);
+}
+.proj-prev .error_product {
+  display: block;
+  color: red;
+  font-size: 4rem;
+  margin-left: 30rem;
+  border: 4px solid black;
+  padding: 3rem;
+  background: paleturquoise;
 }
 .proj-prev__description {
   width: 30%;
@@ -179,8 +196,12 @@ html {
   border: red;
 }
 
-.cart-flex {
+#cart-flex {
   display: flex;
+}
+#cart-flex .errorCart {
+  padding: 13rem;
+  margin: 20rem 34rem;
 }
 
 .heading h2 {
@@ -237,7 +258,12 @@ form label {
   padding-left: 2rem;
   margin-top: 2rem;
 }
-form #missingName {
+form #missingLastName,
+form #missingAdress,
+form #missingCity,
+form #missingEmail,
+form #missingPhone,
+form #missingFirstName {
   font-size: 1rem;
   display: inline-block;
   margin-left: 2rem;

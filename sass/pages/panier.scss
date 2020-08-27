@@ -1,5 +1,9 @@
-.cart-flex {
+#cart-flex {
     display: flex;
+    & .errorCart {
+        padding: 13rem;
+        margin: 20rem 34rem;
+    }
 }
 
 .heading {
@@ -58,7 +62,12 @@ form {
         padding-left: 2rem;
         margin-top: 2rem;
     }
-    & #missingName {
+    & #missingLastName,
+    #missingAdress,
+    #missingCity,
+    #missingEmail,
+    #missingPhone,
+    #missingFirstName {
         font-size: 1rem;
         display: inline-block;
         margin-left: 2rem;

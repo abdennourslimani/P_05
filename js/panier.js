@@ -1,4 +1,11 @@
  productsLists = loadFromStorage('cart')
+ let cartContent = document.getElementById('cart-content');
+ let cartFlex = document.getElementById('cart-flex');
+ let h1 = document.getElementById('h1')
+ let heading = document.getElementById('heading')
+
+
+
 
  if (productsLists != null) {
 
@@ -11,7 +18,6 @@
          imageOfProduct = productsList.image;
          idOfProduct = productsList.id;
 
-         cartContent = document.getElementById('cart-content');
 
          cartContent.innerHTML += `
             <div class="cart-prev">
@@ -33,12 +39,15 @@
                 </div>
             </div>
             `
+         displayItems()
 
      });
- } else if ('cart' == null) {
-     alert('panier vide')
+ } else {
+     cartFlex.innerHTML = "<span class='errorCart'>le panier est vide merci de le remplir d'abord</span>"
+     h1.remove()
+     heading.remove()
+     console.log('hello')
  }
- displayItems()
 
 
 
@@ -197,30 +206,54 @@
      firstNameInuptValue = document.getElementById('firstname').value
      adressInuptValue = document.getElementById('adress').value
      cityInuptValue = document.getElementById('city').value
-     missingName = document.getElementById('missingName')
+
+     missingLastName = document.getElementById('missingLastName')
+     missingFirstName = document.getElementById('missingFirstName')
+     missingAdress = document.getElementById('missingAdress')
+     missingCity = document.getElementById('missingCity')
+     missingEmail = document.getElementById('missingEmail')
+     missingPhone = document.getElementById('missingPhone')
+
 
      emailInuptValue = document.getElementById('email').value
      phoneInuptValue = document.getElementById('phone').value
 
+     let isFormOK = true;
+
      if (regexNumber.test(lastNameInuptValue) || regexMail.test(lastNameInuptValue) || regexSpecialCharacter.test(lastNameInuptValue) || lastNameInuptValue === "") {
-         missingName.textContent = 'choisissez un nom juste'
+         missingLastName.textContent = 'choisissez un nom juste';
+         isFormOK = false;
+     }
+     if (regexNumber.test(firstNameInuptValue) || regexMail.test(firstNameInuptValue) || regexSpecialCharacter.test(firstNameInuptValue) || firstNameInuptValue === "") {
+         missingFirstName.textContent = 'choisissez un prenom juste';
+         isFormOK = false;
+         console.log('bien arivé ici')
 
-     } else if (regexNumber.test(firstNameInuptValue) || regexMail.test(firstNameInuptValue) || regexSpecialCharacter.test(firstNameInuptValue) || firstNameInuptValue === "") {
-         alert('remplissez le champ prenom correctement')
+     }
+     if (regexSpecialCharacter.test(adressInuptValue) || adressInuptValue === "" || regexMail.test(adressInuptValue)) {
+         missingAdress.textContent = 'choisissez une adresse juste'
+         isFormOK = false;
+     }
+     if (regexSpecialCharacter.test(cityInuptValue) || cityInuptValue === "" || regexMail.test(cityInuptValue)) {
+         missingCity.textContent = 'choisissez une ville juste'
+         isFormOK = false;
 
-     } else if (regexSpecialCharacter.test(adressInuptValue) || adressInuptValue === "" || regexMail.test(adressInuptValue)) {
-         alert('remplissez le champ adresse correctement')
 
-     } else if (regexSpecialCharacter.test(cityInuptValue) || cityInuptValue === "" || regexMail.test(cityInuptValue)) {
-         alert('remplissez le champ ville correctement')
+     }
+     if (regexMail.test(emailInuptValue) === false || emailInuptValue === "") {
+         missingEmail.textContent = 'choisissez un email juste'
+         isFormOK = false;
 
-     } else if (regexMail.test(emailInuptValue) === false || emailInuptValue === "") {
-         alert('remplissez le champa mail correctement')
 
-     } else if (regexNumber.test(phoneInuptValue) === false || phoneInuptValue === "" || regexMail.test(phoneInuptValue) || regexString.test(phoneInuptValue) || regexSpecialCharacter.test(phoneInuptValue)) {
-         alert('remplissez le champ telephone correctement')
+     }
+     if (regexNumber.test(phoneInuptValue) === false || phoneInuptValue === "" || regexMail.test(phoneInuptValue) || regexString.test(phoneInuptValue) || regexSpecialCharacter.test(phoneInuptValue)) {
+         missingPhone.textContent = 'remplissez champ telephone correctement'
+         isFormOK = false;
 
-     } else {
+
+
+     }
+     if (isFormOK = true) {
          contact = {
              "firstName": firstNameInuptValue,
              "lastName": lastNameInuptValue,
