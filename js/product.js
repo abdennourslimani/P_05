@@ -5,27 +5,24 @@ const urlid = urlparams.get('id');
 
 let cart = []
 
+function loadStorage(key) {
+    return storageCart = localStorage.getItem(key);
 
-
+}
 fetch(urlApi + '/' + urlid)
     .then(Response => Response.json())
     .then(result => {
         const tedyCostomize = new Teddy(result);
         tedyCostomize.displayItem('content');
 
+        document.getElementById('add-to-cart').addEventListener('click', (e) => {
+            e.preventDefault
+                //récupération panier du storage
+            loadStorage('cart')
 
-        document.getElementById('add-to-cart').addEventListener('click', () => {
-
-
-            //récupération panier du storage
-            let storageCart = localStorage.getItem('cart');
             if (storageCart !== null) {
                 cart = JSON.parse(storageCart);
-
             }
-
-
-
             // recupération du id et color 
             let id = result._id;
             let color = document.getElementById('teddy-select').value;
@@ -34,9 +31,6 @@ fetch(urlApi + '/' + urlid)
             let image = result.imageUrl;
 
             let productFound = cart.find(element => element.id == id && element.color == color);
-
-
-
 
             //préparation de objet avant insertion dans le tableau panier 
             if (color !== "") {
@@ -52,7 +46,6 @@ fetch(urlApi + '/' + urlid)
                 if (productFound == undefined) {
                     let productQuantity = 1;
                     item.productQuantity = 1;
-
                     // creation tableau objet produits
                     cart.push(item);
                     //console.log(cart);
@@ -63,18 +56,30 @@ fetch(urlApi + '/' + urlid)
 
 
                 }
-                localStorage.setItem('cart', JSON.stringify(cart)); // string to save local storage
-                // localStorage.clear();
+                saveStorage('cart', cart)
                 window.location.href = 'panier.html'
 
 
             } else {
-                alert('choisissez une couleur ');
+                colorEmpty('optionColor');
             }
 
         })
     }).catch(error => {
-        document.getElementById('content').innerHTML = '<span class="error_product>choississez un produit svp</span>'
-
+        errorUrlProduct('content')
 
     })
+
+function errorUrlProduct(location) {
+    document.getElementById(location).innerHTML = '<span class="error_product>choississez un produit svp</span>'
+
+}
+
+function colorEmpty(place) {
+    document.getElementById(place).innerHTML = '<span>Merci de choisir une couleur avant de valider</span>'
+
+}
+
+function saveStorage(key, obj) {
+    localStorage.setItem(key, JSON.stringify(obj));
+}

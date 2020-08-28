@@ -9,27 +9,7 @@ class Teddy {
     }
 
     displayInList = (location) => {
-
-
-        /*
-        let a = document.createElement('a');
-        let pPrice = document.createElement('p');
-        let pDesciption = document.createElement('p');
-        let img = document.createElement('img');
-
-        //--------- propriéré --------------------
-        a.id = "link";
-        a.href = this.id;
-        a.alt = this.name;
-        img.src = this.imageUrl;
-        img.width = "400"
-        pPrice.textContent = this.name;
-        pDesciption.textContent = this.price;*/
-
-
-
         const tedylocation = document.getElementById(location);
-
         tedylocation.innerHTML += `<article class=" teddyarticle-prev  ">
                          <a href="product.html?id=${this.id}"><img src="${this.imageUrl}" width="400" alt="${this.name}">
                          <div class="title-flex">
@@ -40,13 +20,8 @@ class Teddy {
                          </article> `
     }
 
-
     displayItem = (location) => {
-
-
         const tedylocation = document.getElementById(location);
-
-
         tedylocation.innerHTML += `
                         <div class="proj-prev__image">
                             <img src="${this.imageUrl}" width="400" height="400" alt="${this.name}"> 
@@ -65,18 +40,15 @@ class Teddy {
                         </div>
                              `
         this.customizeColor();
-
     }
-
 
     customizeColor = () => {
         const tedycolor = document.getElementById('teddy-select');
-        let options = '<option value="">--Please choose an option--</option>'
+        let options = '<option value="" id="optionColor">--Please choose an option--</option>'
 
         for (let i = 0; i < this.colors.length; i++) {
             options += '<option value="' + this.colors[i] + '">' + this.colors[i] + '</option>"';
         }
-
         tedycolor.innerHTML += options;
 
     }

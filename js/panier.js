@@ -4,76 +4,21 @@
  let h1 = document.getElementById('h1')
  let heading = document.getElementById('heading')
 
-
-
-
  if (productsLists != null) {
-
      productsLists.forEach(productsList => {
-         PriceOfProduct = productsList.productPrice;
-         QuantityOfProduct = productsList.productQuantity;
-         totalPriceProduct = PriceOfProduct * QuantityOfProduct;
-         nameOfProduct = productsList.name;
-         colorOfProduct = productsList.color;
-         imageOfProduct = productsList.image;
-         idOfProduct = productsList.id;
-
-
-         cartContent.innerHTML += `
-            <div class="cart-prev">
-                <div class="cart-prev-image">
-                    <img src="${imageOfProduct}">
-                </div>
-    
-                <div class="cart-prev-description">
-                    <h3> ${nameOfProduct}</h2>
-                    <p> couleur :${colorOfProduct}</p>
-                    <p> ${PriceOfProduct} €</p>
-                    <div class=flex>
-                    <input class="moins" type="button" value="-" />
-                    <input class="result" type="text" value="${QuantityOfProduct}" data-productID="${idOfProduct}" data-productColor="${colorOfProduct}" maxlength="2" />
-                    <input class="plus" type="button" value="+" />
-                    <i class="fa fa-trash"  data-productID="${idOfProduct}" data-productColor="${colorOfProduct}" ></i>
-                    <div>
-
-                </div>
-            </div>
-            `
+         displayProductCart(productsList)
          displayItems()
-
      });
  } else {
-     cartFlex.innerHTML = "<span class='errorCart'>le panier est vide merci de le remplir d'abord</span>"
-     h1.remove()
-     heading.remove()
-     console.log('hello')
+     emptyCart()
  }
-
-
 
 
  // remove product 
 
  let trushIcons = document.querySelectorAll('.fa-trash');
- trushIcons.forEach(trushIcon => {
-     trushIcon.addEventListener('click', () => {
-         let idTrush = trushIcon.getAttribute('data-productID');
-         let colorTrush = trushIcon.getAttribute('data-productColor');
-         let index
-         let removeIcons = document.querySelectorAll('.cart-prev');
-
-         productsLists.find(elt => {
-             if (elt.id === idTrush && elt.color === colorTrush) {
-                 index = productsLists.indexOf(elt);
-             }
-         })
-         removeIcons[index].parentNode.removeChild(removeIcons[index])
-         productsLists.splice(index, 1)
-         localStorage.setItem('cart', JSON.stringify(productsLists))
-         displayItems()
-
-     })
-
+ trushIcons.forEach(trush => {
+     removeButton(trush);
 
  })
 
@@ -81,46 +26,18 @@
 
 
  let plusElements = document.querySelectorAll('.plus');
- plusElements.forEach(plusElement => {
+ plusElements.forEach(plus => {
+     addbutton(plus)
 
-     plusElement.addEventListener('click', (e) => {
-         idSibling = plusElement.previousElementSibling.getAttribute('data-productID')
-         colorSibling = e.target.previousElementSibling.getAttribute('data-productColor')
 
-         productsLists.find(elt => {
-             if (elt.id === idSibling && elt.color === colorSibling && elt.productQuantity <= 98) {
-                 elt.productQuantity++
-                     localStorage.setItem('cart', JSON.stringify(productsLists))
-                 plusElement.previousElementSibling.value++
-                     displayItems()
-
-             }
-         });
-     });
  });
 
  // boutton moins 
 
  let moinsElements = document.querySelectorAll('.moins');
- moinsElements.forEach(moinsElements => {
+ moinsElements.forEach(moinsElement => {
+     supprimerElements(moinsElement)
 
-     moinsElements.addEventListener('click', (e) => {
-         idSibling = moinsElements.nextElementSibling.getAttribute('data-productID')
-         colorSibling = e.target.nextElementSibling.getAttribute('data-productColor')
-
-         productsLists.find(elt => {
-             if (elt.id === idSibling && elt.color === colorSibling && elt.productQuantity > 1) {
-                 elt.productQuantity--
-                     localStorage.setItem('cart', JSON.stringify(productsLists))
-                 moinsElements.nextElementSibling.value--
-                     displayItems()
-
-
-
-
-             }
-         });
-     });
  });
 
  function totalCount() {
@@ -200,6 +117,7 @@
  let submit = document.getElementById('submit')
  submit.addEventListener('click', (e) => {
      e.preventDefault()
+
      let products = []
 
      lastNameInuptValue = document.getElementById('lastname').value
@@ -304,9 +222,106 @@
              })
      }
 
-
-
-
-
-
  })
+
+
+
+ function emptyCart() {
+     cartFlex.innerHTML = "<span class='errorCart'>le panier est vide merci de le remplir d'abord</span>"
+     h1.remove()
+     heading.remove()
+ }
+
+
+ function displayProductCart(productsList) {
+     PriceOfProduct = productsList.productPrice;
+     QuantityOfProduct = productsList.productQuantity;
+     totalPriceProduct = PriceOfProduct * QuantityOfProduct;
+     nameOfProduct = productsList.name;
+     colorOfProduct = productsList.color;
+     imageOfProduct = productsList.image;
+     idOfProduct = productsList.id;
+
+
+     cartContent.innerHTML += `
+       <div class="cart-prev">
+           <div class="cart-prev-image">
+               <img src="${imageOfProduct}">
+           </div>
+
+           <div class="cart-prev-description">
+               <h3> ${nameOfProduct}</h2>
+               <p> couleur :${colorOfProduct}</p>
+               <p> ${PriceOfProduct} €</p>
+               <div class=flex>
+               <input class="moins" type="button" value="-" />
+               <input class="result" type="text" value="${QuantityOfProduct}" data-productID="${idOfProduct}" data-productColor="${colorOfProduct}" maxlength="2" />
+               <input class="plus" type="button" value="+" />
+               <i class="fa fa-trash"  data-productID="${idOfProduct}" data-productColor="${colorOfProduct}" ></i>
+               <div>
+
+           </div>
+       </div>
+       `
+ }
+
+
+ function removeButton(trushIcon) {
+     trushIcon.addEventListener('click', () => {
+         let idTrush = trushIcon.getAttribute('data-productID');
+         let colorTrush = trushIcon.getAttribute('data-productColor');
+         let index
+         let removeIcons = document.querySelectorAll('.cart-prev');
+
+         productsLists.find(elt => {
+             if (elt.id === idTrush && elt.color === colorTrush) {
+                 index = productsLists.indexOf(elt);
+             }
+         })
+         removeIcons[index].parentNode.removeChild(removeIcons[index])
+         productsLists.splice(index, 1)
+         localStorage.setItem('cart', JSON.stringify(productsLists))
+         displayItems()
+
+     })
+
+ }
+
+
+
+ function addbutton(plusElement) {
+     plusElement.addEventListener('click', (e) => {
+         idSibling = plusElement.previousElementSibling.getAttribute('data-productID')
+         colorSibling = e.target.previousElementSibling.getAttribute('data-productColor')
+
+         productsLists.find(elt => {
+             if (elt.id === idSibling && elt.color === colorSibling && elt.productQuantity <= 98) {
+                 elt.productQuantity++
+                     localStorage.setItem('cart', JSON.stringify(productsLists))
+                 plusElement.previousElementSibling.value++
+                     displayItems()
+
+             }
+         });
+     });
+ }
+
+ function supprimerElements(moinsElements) {
+     moinsElements.addEventListener('click', (e) => {
+         idSibling = moinsElements.nextElementSibling.getAttribute('data-productID')
+         colorSibling = e.target.nextElementSibling.getAttribute('data-productColor')
+
+         productsLists.find(elt => {
+             if (elt.id === idSibling && elt.color === colorSibling && elt.productQuantity > 1) {
+                 elt.productQuantity--
+                     localStorage.setItem('cart', JSON.stringify(productsLists))
+                 moinsElements.nextElementSibling.value--
+                     displayItems()
+
+
+
+
+             }
+         });
+     });
+ }

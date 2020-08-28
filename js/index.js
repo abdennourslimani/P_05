@@ -48,56 +48,11 @@ fetch(urlApi)
 
         })
     }).catch(error => {
-
-        document.getElementById('content').innerHTML = "<span class='error_server' > erreur:vérifiez votre serveur s'il vous plait</span>"
+        errorServer('content')
 
     })
 
 
-
-
-
-
-
-/* fetch(url1)
-          .then(Response => Response.json())
-          .then(result => {
-              console.log(result);
-              result.forEach(element => {
-                  let img = document.createElement('img');
-                  img.src = element.imageUrl;
-                  img.width = '400';
-                  document.getElementById('content').appendChild(img);
-
-              });
-
-
-
-          });
-      fetch(url2)
-          .then(Response => Response.json())
-          .then(result => {
-              console.log(result);
-              result.forEach(element => {
-                  let img = document.createElement('img');
-                  img.src = element.imageUrl;
-                  img.width = '400';
-                  document.getElementById('content').appendChild(img);
-
-              });
-
-
-
-          });
-      fetch(url3)
-          .then(Response => Response.json())
-          .then(result => {
-              console.log(result);
-              result.forEach(element => {
-                  let img = document.createElement('img');
-                  img.src = element.imageUrl;
-                  img.width = '400';
-                  document.getElementById('content').appendChild(img);
-
-              });
-          })*/
+function errorServer(location) {
+    document.getElementById(location).innerHTML = "<span class='error_server' > erreur:vérifiez votre serveur s'il vous plait</span>"
+}
