@@ -1,0 +1,89 @@
+#cart-flex {
+    display: flex;
+    & .errorCart {
+        padding: 13rem;
+        margin: 20rem 34rem;
+    }
+}
+
+.heading {
+    & h2 {
+        font-weight: 100;
+    }
+    & span {
+        font-weight: bold;
+    }
+}
+
+.cart-content {
+    width: 50%;
+    margin-right: 4rem;
+    & .cart-prev {
+        border: 1px solid black;
+        margin-bottom: 10rem;
+        //  
+        font-family: fantasy;
+        display: flex;
+        &>p,
+        >span,
+        >h3 {
+            padding-right: 2rem;
+        }
+        & .cart-prev-image {
+            width: 60%;
+            & img {
+                width: 75%;
+                height: 100%;
+            }
+        }
+        & .cart-prev-description {
+            padding-bottom: 4rem;
+            & .flex {
+                display: flex;
+                & .result {
+                    text-align: center;
+                    width: 20%;
+                }
+                & .fa-trash {
+                    padding-left: 1rem;
+                }
+            }
+        }
+    }
+}
+
+form {
+    width: 50%;
+    & h3 {
+        margin-top: 0;
+    }
+    & label {
+        display: block;
+        padding-left: 2rem;
+        margin-top: 2rem;
+    }
+    & #missingLastName,
+    #missingAdress,
+    #missingCity,
+    #missingEmail,
+    #missingPhone,
+    #missingFirstName {
+        font-size: 1rem;
+        display: inline-block;
+        margin-left: 2rem;
+        color: red;
+    }
+    & input {
+        border-radius: 30px;
+        width: 90%;
+        padding: 1rem;
+        margin-left: 1rem;
+        &#validation {
+            background-color: black;
+            width: 50%;
+            margin-left: 12rem;
+            color: white;
+            font-size: 2rem;
+        }
+    }
+}

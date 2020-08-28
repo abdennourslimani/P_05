@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="desciprtion" content="site dédié à la vente des teddies de trés hautes qualitées avec plusieurs variétéss personnalisable">
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>Orinoco poduits</title>
+</head>
+
+
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="./img/logo_orinoco.png" alt="logo du site">
+        </a>
+        <div class="panier">
+            <a href="#">
+                <img src="./svg/shopping_icon.svg" alt="panier du site">
+                <p>Panier</p>
+            </a>
+        </div>
+    </header>
+    <main class="container">
+        <h1 id='h1'>Votre panier</h1>
+        <div id="heading" class="heading">
+
+        </div>
+
+
+        <div id="cart-flex">
+            <div id="cart-content" class="cart-content">
+            </div>
+
+            <form method="post" id='form' action="">
+
+                <h3> Formulaire de commande</h3>
+                <!-- Titre du fieldset -->
+                <p>
+                    <label for="lastname">Votre nom </label>
+                    <input type="text" name="lastname" id="lastname" placeholder="slimani" required /><br />
+                    <span id="missingLastName"></span></br>
+
+                    <label for="firstname"> votre prénom </label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Mohamed" required /><br />
+                    <span id="missingFirstName"></span></br>
+
+                    <label for="adress">Votre adresse</label>
+                    <input type="text" name="adress" id="adress" placeholder="adresse" required /><br />
+                    <span id="missingAdress"></span></br>
+
+                    <label for="city">Votre ville</label>
+                    <input type="text" name="city" id="city" placeholder="ville" required /><br />
+                    <span id="missingCity"></span></br>
+
+                    <label for="email">Votre email</label>
+                    <input type="email" name="email" id="email" placeholder="Ex:prenom.nom@.....fr" required /><br />
+                    <span id="missingEmail"></span></br>
+
+                    <label for="phone">Votre telephone</label>
+                    <input type="tel" name="phone" id="phone" placeholder="telephone" required /><br />
+                    <span id="missingPhone"></span></br>
+
+                </p>
+                <p>
+                    <input type="Submit" id="submit" value="commander">
+                </p>
+
+            </form>
+        </div>
+
+    </main>
+    <footer class="footer">
+        <h4> site réalisé par SLIM@NIT</h4>
+    </footer>
+    <script src="./js/panier.js"></script>
+
+
+
+
+</body>
+
+</html>
